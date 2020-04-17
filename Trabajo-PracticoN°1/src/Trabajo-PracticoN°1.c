@@ -8,3 +8,6 @@ int main(void)
 
 	return 0;
 }
+
+
+//los comentarios estan en "funciones.h"

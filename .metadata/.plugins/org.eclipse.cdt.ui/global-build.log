@@ -1,4 +1,6 @@
-20:59:51 **** Incremental Build of configuration Debug for project Trabajo-PracticoN°1 ****
+18:21:30 **** Incremental Build of configuration Debug for project Trabajo-PracticoN°1 ****
 Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Trabajo-PracticoN°1.o" "..\\src\\Trabajo-PracticoN°1.c" 
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\funciones.o" "..\\src\\funciones.c" 
 gcc -o Trabajo-PracticoN°1.exe "src\\Trabajo-PracticoN°1.o" "src\\funciones.o" 
+Info: Nothing to build for Trabajo-PracticoN°1

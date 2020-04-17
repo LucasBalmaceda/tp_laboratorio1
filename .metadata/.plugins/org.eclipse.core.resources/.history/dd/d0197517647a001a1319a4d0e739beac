@@ -1,4 +1,0 @@
-#include "funciones.c"
-
-int calcualadora(void);
-int sumar(int numero1, numero2);

@@ -1,8 +1,0 @@
-#include "funciones.h"
-
-main(void)
-{
-	calculadora(void);
-
-	return 0;
-}

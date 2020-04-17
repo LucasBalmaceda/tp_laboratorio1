@@ -1,5 +1,0 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-int calcualadora(void);
-int sumar(int numero1, numero2);
