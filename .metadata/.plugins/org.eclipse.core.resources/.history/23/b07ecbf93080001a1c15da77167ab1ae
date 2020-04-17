@@ -1,0 +1,9 @@
+#include "funciones.h"
+
+int main(void)
+{
+	setbuf(stdout, NULL);
+
+
+	return 0;
+}

@@ -1,0 +1,119 @@
+#include "funciones.h"
+
+int calculadora(void)
+{
+	int ret = -1;
+	int opcion;
+	int num1;
+	int num2;
+
+	do
+		{
+		printf("Marque una opcion: \n1-Sumar: \n2-Restar: \n3-Dividir: \n4-Multiplicar: \n5-Factorial: \n6-Salir.");
+			switch(opcion)
+			{
+			case 1:
+				sumar(num1, num2);
+				break;
+			case 2:
+				restar();
+				break;
+			case 3:
+				division();
+				break;
+			case 4;
+				multiplicacion();
+				break;
+			case 5;
+				factorial();
+				break;
+			}
+		}while(opcion != 6);
+
+	return ret;
+}
+
+
+int sumar(int *pResultado)
+{
+	int ret=-1;
+	int num1;
+	int num2;
+
+
+	return ret;
+}
+
+int restar(int numero1, int numero2)
+{
+	int resta;
+
+	utn_getNumero(&num1,"\nIngrese un numero: ","Error, ese numero no esta entre los parametros. Intentelo de nuevo: ",0,9999,3);
+	utn_getNumero(&num2,"\nIngrese un numero: ","Error, ese numero no esta entre los parametros. Intentelo de nuevo: ",0,9999,3);
+
+	resta = numero1 + numero2;
+
+	return resta;
+}
+
+int division(int * respuesta, int numero1, int numero2)
+{
+	int ret = -1;
+	int division;
+
+	utn_getNumero(&num1,"\nIngrese un numero: ","Error, ese numero no esta entre los parametros. Intentelo de nuevo: ",0,9999,3);
+	utn_getNumero(&num2,"\nIngrese un numero: ","Error, ese numero no esta entre los parametros. Intentelo de nuevo: ",0,9999,3);
+
+	if(numero1 != NULL && numero2 != NULL)
+	{
+		division = numero1 / numero2;
+		*respuesta = division;
+		ret = 0;
+		printf("\nsalio bien");
+	}
+
+	else
+	{
+		printf("malio sal");
+	}
+
+	return ret;
+}
+
+int factorial()
+{
+	int ret=-1;
+
+	utn_getNumero(&num1,"\nIngrese un numero: ","Error, ese numero no esta entre los parametros. Intentelo de nuevo: ",0,9999,3);
+	utn_getNumero(&num2,"\nIngrese un numero: ","Error, ese numero no esta entre los parametros. Intentelo de nuevo: ",0,9999,3);
+
+	return ret;
+}
+
+int utn_getNumero(int* pResultado,char* mensaje, char* mensajeError, int minimo, int maximo, int reintentos)
+{
+	int ret = -1;
+	int num;
+	if(mensaje != NULL && mensajeError != NULL)
+	{
+		while(reintentos>0)
+		{
+			printf(mensaje);
+			scanf("%d",&num);
+			if(num<=maximo && num>=minimo)
+			{break;}
+			reintentos--;
+			printf(mensajeError);
+		}
+		if(reintentos==0)
+		{
+			ret=-1;
+		}
+		else
+		{
+			ret=0;
+			*pResultado = num;
+		}
+	}
+	return ret;
+}

@@ -1,0 +1,29 @@
+#include "funciones.h"
+
+int main(void)
+{
+	setbuf(stdout, NULL);
+
+	/*int respuesta;
+	int num1;
+	int num2;
+
+	printf("\nIngrese un numero: %d");
+	scanf("%d",&num1);
+	printf("\nIngrese otro numero: %d");
+	scanf("%d",&num2);
+
+	division(&respuesta, num1, num2);
+
+	printf("\nSu resultado es %d",respuesta);
+*/
+
+	getInt()
+	{
+
+	}
+
+
+
+	return 0;
+}

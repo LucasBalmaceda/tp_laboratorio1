@@ -1,0 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int calcualadora(void);
+int sumar(int numero1, int numero2);
+int division(int * respuesta, int numero1, int numero2);
