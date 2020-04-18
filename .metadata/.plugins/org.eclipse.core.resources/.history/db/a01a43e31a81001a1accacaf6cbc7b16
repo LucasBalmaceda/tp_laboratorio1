@@ -44,7 +44,7 @@ int multiplicacion(int *pResultado,int numero1, int numero2);
  * \param pResultado1 Puntero en donde guardaremos el primer valor del factorial del operando numero2
  * \param pResultado2 Puntero en donde guardaremos el segundo valor del factorial del operando numero2
  * \param numero1 aqui hacemos referencia al primer operando ingresado por el usuario
- * \param numero2 aqui hacemos referencia al segundo operando del factorial ingresado por el usuario
+ * \param numero2 aqui hacemos referencia al segundo operando de la multiplicacion ingresado por el usuario
  * \return en cado de exito (0), en caso de error (-1)
  */
 int factorial(int *pResultado,int *pResultado2,int numero1, int numero2);
