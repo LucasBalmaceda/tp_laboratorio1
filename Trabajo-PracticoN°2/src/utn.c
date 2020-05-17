@@ -229,53 +229,48 @@ int isValidChar(char stringReceived)
 
 //---------------------------------------------------------------------------------------------------------------------------//
 
-int utn_getText(char *pResult, char *msg, char *msgError, int minSize, int maxSize, int retries)
+int utn_getText(char* input, char* msg, char* msgError, int minSize, int maxSize, int reintentos)
 {
-	int ret=-1;
+	int retorno=-1;
 	char bufferStr[maxSize];
 
-	if(pResult!=NULL && msg!=NULL && msgError!=NULL && minSize<maxSize && retries>=0)
+	if(msg!=NULL && msgError!=NULL && minSize<maxSize && reintentos>=0 && input!=NULL)
 	{
 		do
 		{
-			if(!utn_getString(bufferStr,msg,msgError,minSize,maxSize,&retries)) //==0 sin errores !0
+			if(!utn_getString(bufferStr,msg,msgError,minSize,maxSize,&reintentos)) //==0 sin errores !0
 			{
 				if(isValidText(bufferStr)==1)
 				{
-					strncpy(pResult,bufferStr,maxSize);
-					ret=0;
+					strncpy(input,bufferStr,maxSize);
+					retorno=0;
 					break;
 				}
 				else
 				{
-					printf("%s",msgError);
-					retries--;
+					printf("%s 2",msgError);
+					reintentos--;
 				}
 			}
-		}while(retries>=0);
+		}
+		while(reintentos>=0);
 	}
-
-	return ret;
+	return retorno;
 }
 
-int isValidText(char *stringReceived)
+int isValidText(char* stringRecibido)
 {
-	int ret=-1;
+	int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
 	int i;
-
-	if(stringReceived!=NULL)
+	for(i=0;stringRecibido[i]!='\0';i++)
 	{
-		for(i=0;stringReceived[i]!='\0';i++)
+		if(stringRecibido[i]<' ' || stringRecibido[i]>'z')
 		{
-			if(stringReceived[i]<' ' || stringReceived[i]>'z')
-			{
-				ret=0;
-				break;
-			}
+			retorno=0;
+			break;
 		}
 	}
-
-	return ret;
+	return retorno;
 }
 
 //---------------------------------------------------------------------------------------------------------------------------//

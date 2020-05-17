@@ -17,8 +17,8 @@ int isValidFloat(char *stringReceived);
 int utn_getChar(char *pResult, char* msg, char* msgError, int min, int max, int retries);
 int isValidChar(char stringReceived);
 
-int utn_getText(char *pResult, char *msg, char *msgError, int minSize, int maxSize, int retries);
-int isValidText(char *stringReceived);
+int utn_getText(char* input, char* msg, char* msgError, int minSize, int maxSize, int reintentos);
+int isValidText(char* stringRecibido);
 
 int imprimirArrayInt(int pArray[],int size);
 int pedirArray(int *pArray, int size);

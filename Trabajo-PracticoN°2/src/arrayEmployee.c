@@ -25,32 +25,47 @@ int initEmployees(Employee *list, int len)
 //-----------------------------------------------------------------------------------------------------------------------------------------//
 
 
-int addEmployee(Employee *list, int idCounter, int len, int id, char name[], char lastName[], float salary, int sector)
+int addEmployee(Employee *list, int len, int id, char name[], char lastName[], float salary, int sector)
 {
 	int ret=-1;
-	int position;
 
 	if(list!=NULL && name!=NULL && lastName!=NULL && len>0 && id>0 && salary>0 && sector>0)
 	{
+		strcpy(list[id].name,name);
+		strcpy(list[id].lastName,lastName);
+		list[id].id=id;
+		list[id].salary=salary;
+		list[id].sector=sector;
+		list[id].isEmpty=0;
+
+		ret=0;
+	}
+
+	return ret;
+}
+
+int highEmployee(Employee *list, int *idCont, int len)
+{
+	int ret=-1;
+	int position;
+	int auxId;
+	char auxName[55];
+	char auxLastName[55];
+	float auxSalary;
+	int auxSector;
+
+	if(list!=NULL && len>0)
+	{
 		if(findEmptyPosition(list,&position,len)==0)
 		{
-			id++;
-			list[id].id=id;
+			(*idCont)++;
+			auxId=*idCont;
+			utn_getText(auxName,"\nName: ","\nError, this name is not valid.",1,55,3);
+			utn_getText(auxLastName,"\nLast Name: ","\nError, this last name is not valid.",1,55,3);
+			utn_getFloat(&auxSalary,"\nSalary: ","\nError, this salary is not valid.",1,150000,1,120000,3);
+			utn_getUnsignedInt(&auxSector,"\nSector: ","\nError, this sector is not valid",1,sizeof(int),1,10,3);
 
-			utn_getText(name,"\nName: ","\nError, this name is not valid.",1,51,3);
-			strcpy(list[id].name, name);
-
-			utn_getText(lastName,"\nLast Name: ","\nError, this last name is not valid.",1,51,3);
-			strcpy(list[id].lastName, lastName);
-
-			utn_getFloat(&salary,"\nSalary: ","\nError, this salary is not valid.",1,150000,1,120000,3);
-			list[id].salary=salary;
-
-			utn_getUnsignedInt(&sector,"\nSector: ","\nError, this sector is not valid",1,sizeof(int),1,10,3);
-			list[id].sector=sector;
-
-			list[id].isEmpty=0;
-
+			addEmployee(list,len,auxId,auxName,auxLastName,auxSalary,auxSector);
 			ret=0;
 		}
 		else
@@ -103,10 +118,10 @@ int modifyEmployee(Employee *list, int len)
 				switch(option)
 				{
 				case 1:
-					utn_getText(list[position].name,"\n\nEnter the new name: ","\nError, this name is not appropriate.",1,51,3);
+					utn_getText(list[position].name,"\n\nEnter the new name: ","\nError, this name is not appropriate.",1,55,3);
 					break;
 				case 2:
-					utn_getText(list[position].lastName,"\nEnter the new last name: ","\n\nError, this last name is not appropriate.",1,51,3);
+					utn_getText(list[position].lastName,"\nEnter the new last name: ","\n\nError, this last name is not appropriate.",1,55,3);
 					break;
 				case 3:
 					utn_getFloat(&list[position].salary,"\nEnter the new salary: ","\n\nError, this salary is not correct.",1,150000,1,120000,3);
@@ -139,15 +154,15 @@ int findEmployeeById(Employee *list, int *pResult, int len, int id)
 	{
 		for(i=0;i<len;i++)
 		{
-			if(list[i].isEmpty==0)
+			if(list[i].isEmpty==1)
 			{
 				continue;
 			}
-			else if(list[i].isEmpty==1)
+			else if(list[i].id==id)
 			{
 				*pResult = id;
-				break;
 				ret=0;
+				break;
 			}
 		}
 	}

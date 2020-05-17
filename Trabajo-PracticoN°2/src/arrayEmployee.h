@@ -15,7 +15,8 @@ typedef struct
 
 
 int initEmployees(Employee *list, int len);
-int addEmployee(Employee *list, int idCounter, int len, int id, char name[], char lastName[], float salary, int sector);
+int addEmployee(Employee *list, int len, int id, char name[], char lastName[], float salary, int sector);
+int highEmployee(Employee *list, int *idCont, int len);
 int removeEmployee(Employee *list, int len, int id);
 int modifyEmployee(Employee *list, int len);
 int findEmployeeById(Employee *list, int *pResult, int len, int id);
